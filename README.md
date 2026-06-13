@@ -38,7 +38,7 @@ Clone this repository to your local directory:
 git clone [https://github.com/YOUR_GITHUB_USERNAME/python-c2-framework-simulation.git](https://github.com/YOUR_GITHUB_USERNAME/python-c2-framework-simulation.git)
 cd python-c2-framework-simulation
 
-2. Launching the Operator Console
+### 2. Launching the Operator Console
 Open a terminal window and execute the listener server:
 
 Bash
@@ -46,7 +46,7 @@ python c2_server.py
 
 The terminal will initialize and enter a listening state: [*] C2 Server active on port 8080...
 
-3. Activating the Target Beacon
+### 3. Activating the Target Beacon
 Open a second, separate terminal window (or a split pane in VS Code) and run the beacon script:
 
 Bash
@@ -54,7 +54,7 @@ python c2_beacon.py
 
 The beacon will establish its heartbeat loop: [*] Target Beacon Started. Initiating callback loop..
 
-4. Executing a Command Simulation
+### 4. Executing a Command Simulation
 Return to your server terminal pane, which now displays the C2-Shell> prompt. Type a native system discovery command and press Enter:
 
 Bash
