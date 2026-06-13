@@ -1,4 +1,3 @@
-Markdown
 # Python-Based Command & Control (C2) Framework Simulation
 
 A modular, lightweight Command and Control (C2) infrastructure prototype written in native Python. This project serves as an educational simulation to demonstrate the underlying networking, beaconing, and egress communication mechanics utilized by professional Red Teams and advanced persistent threats (APTs). 
@@ -30,45 +29,54 @@ This framework splits the control loop into two distinct operational components:
 ---
 
 ## 🚀 Local Lab Deployment & Testing
-
 To safely run and evaluate this simulation in an isolated local testing environment, follow these steps:
 
-1. Environment Setup
+### 1. Environment Setup
 Clone this repository to your local directory:
-```bash
+
 git clone https://github.com/pallavikhadse/python-c2-framework-simulation.git
+
 cd python-c2-framework-simulation
 
-2. Launching the Operator Console
+---
+
+### 2. Launching the Operator Console
 Open a terminal window and execute the listener server:
-```bash
+
 python c2_server.py
-The terminal will initialize and enter a listening state: [*] C2 Server active on port 8080...
 
-3. Activating the Target Beacon
+The terminal will initialize and enter a listening state: [] C2 Server active on port 8080...*
+
+---
+
+### 3. Activating the Target Beacon
 Open a second, separate terminal window (or a split pane in VS Code) and run the beacon script:
-```bash
-python c2_beacon.py
-The beacon will establish its heartbeat loop: [*] Target Beacon Started. Initiating callback loop..
 
-4. Executing a Command Simulation
+python c2_beacon.py
+
+The beacon will establish its heartbeat loop: [] Target Beacon Started. Initiating callback loop..*
+
+---
+
+### 4. Executing a Command Simulation
 Return to your server terminal pane, which now displays the C2-Shell> prompt. Type a native system discovery command and press Enter:
 
-Plaintext
 C2-Shell> whoami
 [*] Command 'whoami' queued. Waiting for next beacon check-in...
 
 [+] Exfiltrated Output From Target:
-----------------------------------------
 desktop-example\user
-----------------------------------------
 
-🛑 Defensive Takeaways & EDR Insights
+---
+
+## 🛑 Defensive Takeaways & EDR Insights
 Developing this simulation highlights key focal points for defensive engineering and threat hunting:
 
 Beaconing Detection: Security operations centers (SOCs) can detect this activity by looking for consistent HTTP polling intervals (e.g., traffic every 5 seconds) coming from a single endpoint to an external address.
 
 User-Agent Anomalies: Standard Python scripts send a default HTTP User-Agent string (e.g., Python-urllib/3.x). EDR and proxy rules should be written to alert on non-browser User-Agents making outbound web requests.
 
-⚖️ Disclaimer
+---
+
+## ⚖️ Disclaimer
 This software is provided strictly for educational, security research, and authorized defensive benchmarking purposes. It should only be deployed in controlled, local virtual environments or authorized sandbox networks.
